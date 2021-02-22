@@ -1,7 +1,8 @@
 dnl Process this file with autoconf 2.69 or later to produce
 dnl a configure script.
-AC_PREREQ(2.69)
-AC_INIT(config/config.h.in)
+AC_PREREQ([2.69])
+AC_INIT
+AC_CONFIG_SRCDIR([config/config.h.in])
 AC_CONFIG_HEADERS(config/config.h)
 
 AC_PREFIX_PROGRAM(nasm)
@@ -314,5 +315,6 @@ dnl support ccache
 dnl
 PA_ARG_ENABLED([ccache], [compile with ccache], [CC="ccache $CC"], [])
 
-AC_OUTPUT_COMMANDS([mkdir -p config nasmlib nsis output stdlib x86 asm disasm rdoff macros common])
-AC_OUTPUT(Makefile doc/Makefile)
+AC_CONFIG_COMMANDS([default-1],[[mkdir -p config nasmlib nsis output stdlib x86 asm disasm rdoff macros common]],[[]])
+AC_CONFIG_FILES([Makefile doc/Makefile])
+AC_OUTPUT
